@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean name="speakerRepository"
+          class="com.learning.repository.HibernateSpeakerRepositoryImpl"/>
+
+    <!--the below line is doing constructor injection by using autowire=constructor at bean definition level-->
+<!--    <bean name="speakerService"
+          class="com.learning.service.SpeakerServiceImpl" autowire="constructor"/>-->
+<!--      taking off setter injection
+      <property name="speakerRepository" ref="speakerRepository"/>-->
+
+<!--        using constructor injection-->
+<!--        <constructor-arg index="0" ref="speakerRepository"/>-->
+
+<!--        finally took off constructor injection too to use autowired, for that add autowire in the bean definition above-->
+
+    <!--the below uses the setter injection using the autowire = byType at bean definition level-->
+    <bean name="speakerService"
+          class="com.learning.service.SpeakerServiceImpl" autowire="byType">
+
+    </bean>
+
+
+        </beans>
